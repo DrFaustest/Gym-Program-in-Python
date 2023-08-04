@@ -1,0 +1,154 @@
+--WORKOUT BUDDY--
+-GENERALIZATION-
+1. User Profile Information:
+Essential Data:
+
+Name: For personalization.
+Age: Can impact training intensity, volume, and recovery needs.
+Sex: Can influence metabolic rate, muscle mass distribution, etc.
+Weight: Used in calorie estimations and to gauge exercise intensity.
+Height: Helpful for calculating BMI and other metrics.
+Goal: Strength training, maintenance, or weight loss.
+One Rep Max (1RM): Essential for strength training to determine training weight.
+Additional Data:
+
+Experience Level: Beginner, Intermediate, Advanced. A beginner might need a different volume/intensity than someone more advanced.
+Injury History: Certain injuries might contraindicate specific exercises.
+Preferred Gym Days: How many days a week the user plans to work out.
+Equipment Available: This can influence the prescribed exercises (e.g., if they have a squat rack, dumbbells, etc.).
+Dietary Preferences: Can offer nutrition advice related to their goals.
+Tracking Metrics: Progress photos, weight tracking, measurement tracking (like waist, chest, etc.).
+Feedback: After each workout, the user can give feedback if it was too easy/hard to adjust future workouts.
+2. Application Structure:
+User Registration and Login: Secure storage and retrieval of user information.
+
+Onboarding Process: Where users input the essential and additional data. This can be a step-by-step process with explanations of why each data point is important.
+
+Routine Generation Algorithm:
+
+Depending on the goal, you can adjust volume and intensity.
+If 1RM is provided, you can prescribe workouts based on percentages of 1RM.
+Create variations to prevent monotony.
+Use periodization concepts. For instance, a 4-week program where week 1 is high volume, low intensity, progressing to week 4 with high intensity but lower volume.
+Dashboard:
+
+Calendar View: Shows the 30-day routine. Users can click on a day to get detailed exercises, reps, and weights.
+Progress Section: Visualize metrics like weight, 1RM progress, etc.
+Notifications/Reminders: For upcoming workouts, rest days, or milestones achieved.
+Routine View:
+
+Each day can have a list of exercises with prescribed sets, reps, and weights.
+Space for user notes, feedback or tracking if they completed the workout.
+Option to adjust or swap out exercises if they can't perform a certain movement.
+Nutrition Tips/Calculator: If you decide to implement dietary information, offer tips or calculators to determine caloric needs based on the user's goal.
+
+Database: Store user information, progress metrics, and workout data. Consider using SQLite for a lightweight application or PostgreSQL/MySQL for larger applications.
+
+Feedback Mechanism: Allow users to report how they felt post-workout, if it was too hard/easy, and adjust the program accordingly.
+
+3. Implementation Tips:
+Modularity: Keep your code modular. Separate logic for user management, routine generation, data visualization, etc.
+Safety: Ensure you have a disclaimer notifying users to consult with a healthcare or fitness professional before starting any program.
+Database Security: If storing user data, ensure it's encrypted and that you're following best practices for data privacy.
+APIs: If you wish to expand, consider using APIs. For example, an API that gives nutritional information about foods.
+
+
+BASIC CALCULATION IDEAS
+1. Upper Body:
+a. Bench Press (Chest):
+Start with: 60-70% of 1RM
+Weight Increase: 2.5 - 5 lbs every 1-2 weeks
+b. Overhead Press (Shoulders):
+Start with: 60-70% of 1RM
+Weight Increase: 2.5 - 5 lbs every 1-2 weeks
+c. Barbell Row (Back):
+Start with: 60-70% of 1RM
+Weight Increase: 5 lbs every 1-2 weeks
+d. Bicep Curl (Biceps):
+Start with: A weight you can lift for 8-12 reps with proper form
+Weight Increase: 2.5 lbs every 2-3 weeks
+e. Tricep Dips (Triceps):
+Start with: Body weight
+Weight Increase: Add weight using a dip belt, increasing by 2.5-5 lbs every 2-3 weeks
+2. Lower Body:
+a. Squat:
+Start with: 60-70% of 1RM
+Weight Increase: 5 - 10 lbs every 1-2 weeks
+b. Deadlift:
+Start with: 60-70% of 1RM
+Weight Increase: 5 - 10 lbs every 1-2 weeks
+c. Leg Press:
+Start with: A weight you can push for 8-12 reps with proper form
+Weight Increase: 10 lbs every 1-2 weeks
+d. Leg Curls (Hamstrings):
+Start with: A weight you can lift for 8-12 reps with proper form
+Weight Increase: 5 lbs every 2-3 weeks
+e. Calf Raises:
+Start with: A weight you can lift for 10-15 reps
+Weight Increase: 5 lbs every 2-3 weeks
+3. Core:
+a. Plank:
+Start with: Holding for 30 seconds to a minute
+Time Increase: Add 10-15 seconds every week
+b. Russian Twists:
+Start with: Body weight for 15-20 reps/side
+Weight Increase: Add 2.5 lbs every 2-3 weeks, using a dumbbell or plate
+Note:
+
+Weight increases should be done only if the user can perform the exercises with proper form. The progression rates given are generic and may need to be adjusted based on individual needs.
+
+This list is just a starting point. You can expand it by adding other exercises, bodyweight exercises, plyometrics, cardio workouts, etc.
+
+The weight increase calculations are especially suited for beginners to intermediates. Advanced trainees may have different progression schemes, often progressing at slower rates or using techniques like periodization.
+
+
+WORKFLOW
+1. Define the Project Scope
+List out all features you want to include (registration, routine generation, feedback mechanism, etc.).
+Prioritize them based on importance and dependencies.
+2. Design Database Schema
+Decide on the database system (SQLite, PostgreSQL, MySQL, etc.).
+Design tables like Users, Exercises, Routines, UserProgress, etc.
+Determine relationships between tables (e.g., one-to-many, many-to-many).
+3. Setup Development Environment
+Choose a development environment or IDE suitable for Python.
+Initialize a version control system (like Git) for your project.
+Set up a virtual environment to manage dependencies.
+4. Develop User Registration & Login System
+Start with the basic user registration: email, password, name, etc.
+Implement user login and authentication.
+Integrate security features (password hashing, session management, etc.).
+5. Onboarding Process
+Develop UI/UX for users to input their essential and additional data.
+Store this data in the database.
+6. Routine Generation Algorithm
+Develop the logic for routine generation based on user data.
+Incorporate the exercise list and weight increase calculations.
+Make sure to test this extensively, perhaps with a separate script initially, before integrating it into the main application.
+7. Dashboard & UI Development
+Create a user-friendly dashboard to display the 30-day routine, progress metrics, and other features.
+Implement a calendar view and a daily routine view.
+Make sure the design is responsive if you're building a web app.
+8. Feedback & Adjustment Mechanism
+Develop a system for users to provide feedback on each workout.
+Adjust future workouts based on this feedback.
+9. Nutrition Tips/Calculator (Optional)
+If you decide to include nutrition, develop a calculator or a set of tips based on the user's goal.
+10. Testing
+Initially, perform unit tests for specific functionalities.
+As more features get completed, perform integration testing.
+Finally, conduct end-to-end testing of the complete application.
+11. Deployment & Hosting
+Choose a platform for deployment (if it's a web app).
+Deploy your application and set up hosting. Remember to shift from a development to a production database configuration.
+12. Gathering Feedback & Iteration
+Allow friends, family, or selected users to beta-test your application.
+Gather their feedback and iterate on your application, making necessary improvements.
+13. Maintenance
+Monitor for any bugs or issues.
+Release updates with new exercises, features, or improvements based on user feedback.
+14. Expansion (Optional)
+Consider expanding features based on user feedback, such as integrating third-party APIs, adding more advanced tracking, or integrating with wearable fitness tech.
+Tips:
+Version Control: Ensure you're using a version control system from the outset. It will allow you to track changes, collaborate with others, and revert to previous states if necessary.
+Minimum Viable Product (MVP): Initially aim for an MVP, which has just enough features to make the application usable. This helps in quicker testing and gathering initial user feedback. Enhancements can be made based on this feedback.
